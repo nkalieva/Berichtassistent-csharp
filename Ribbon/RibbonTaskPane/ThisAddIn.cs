@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using Excel = Microsoft.Office.Interop.Excel;
+using Office = Microsoft.Office.Core;
+using Microsoft.Office.Tools.Excel;
+using System.Windows.Forms;
+using Microsoft.Office.Tools;
+using Microsoft.Office.Tools.Ribbon;
+using Microsoft.Office.Tools.Excel;
+using System.Windows.Forms;
+using Microsoft.Office.Tools;
+
+
+namespace RibbonTaskPane
+{
+    public partial class ThisAddIn
+         
+    {
+
+        private static ThisAddIn _instance;
+
+        private Microsoft.Office.Tools.CustomTaskPane _taskPane;
+
+        private void ThisAddIn_Startup(object sender, System.EventArgs e)
+        {
+            /*UserControl userControl = new UserControl(); // Ersetze "MyUserControl" durch den Namen deines benutzerdefinierten UserControls
+             _taskPane = this.CustomTaskPanes.Add(userControl, "API Einstellung");
+             _taskPane.DockPosition = Microso*/
+
+            _instance = this;
+        }
+
+        public static ThisAddIn Instance
+        {
+            get { return _instance; }
+        }
+
+        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        {
+        }
+
+        #region Von VSTO generierter Code
+
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
+        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        /// </summary>
+        private void InternalStartup()
+        {
+            this.Startup += new System.EventHandler(ThisAddIn_Startup);
+            this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
+        }
+
+
+        #endregion
+
+
+    }
+}
